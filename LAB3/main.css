@@ -1,0 +1,101 @@
+h1 {
+    text-align: center;
+    font-family:"Copperplate Gothic",fantasy;
+}
+body{
+    text-align:center;
+
+}
+
+.flex-container {
+    border-radius:5pt;
+    display: flex;
+    background-color: #6EEAD5;
+    justify-content: center;
+    text-align: center;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+.flex-container > div{
+    margin-left:10px;
+}
+
+.flex-container p{
+    font-size:15pt;
+}
+    
+
+.button{
+    font-size:10pt;
+    display:flex;
+    justify-content: center;
+    padding:5px;
+}
+
+.button div{
+    margin:10pt;
+    width:80pt;
+    height80pt;
+}
+
+.button input{
+    border-radius:5pt;
+}
+
+.signup{
+    font-size:15pt;
+    text-align:left;
+    border: double;
+    margin:10pt;
+    padding:15pt;
+}
+
+.signup p{
+    color: brown;
+}
+
+.main{
+    width:1020px;
+    text-align:center;
+}
+
+@keyframes text{
+    0% {width:1020px;}
+    100% {width: 250px;}
+}
+
+.movingtext {
+    width:250px;
+    font-size: 35px;
+    text-align:right;
+    position:relative;
+    animation-name:text;
+    animation-duration:2s;
+
+    animation-timing-function:linear;
+}
+
+.computer{
+    width:250px;
+    transition: transform 2s;
+    padding:100px;
+}
+
+.computer:hover{
+    transform: rotate(360deg) ;
+}
+
+.monitor{
+    width:250px;
+    transition: transform 2s;
+    padding:115px;
+}
+
+.monitor:hover{
+    transform: scale(1.5,1.5);
+}
+
+.menu{
+    display:flex;
+    margin-top:100px;
+}
