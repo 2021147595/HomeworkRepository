@@ -1,0 +1,136 @@
+h1 {
+    text-align: center;
+    font-family:"Copperplate Gothic",fantasy;
+}
+body{
+    text-align:center;
+
+}
+
+.loginmenu {
+    margin-top:50px;
+    border-radius:5pt;
+    display: flex;
+    background-color: #6EEAD5;
+    justify-content: center;
+    text-align: center;
+    border-top-style: solid;
+    border-bottom-style: solid;
+}
+.flex-container > div{
+    margin-left:10px;
+}
+
+.flex-container p{
+    font-size:15pt;
+}
+    
+
+.button{
+    font-size:10pt;
+    display:flex;
+    justify-content: center;
+    padding:5px;
+}
+
+.button div{
+    margin:10pt;
+    width:80pt;
+    height80pt;
+}
+
+.button input{
+    border-radius:5pt;
+}
+
+.signup{
+    font-size:15pt;
+    text-align:left;
+    border: double;
+    margin:10pt;
+    padding:15pt;
+}
+
+.signup p{
+    color: brown;
+}
+
+.main{
+    width:90%;
+    text-align:center;
+}
+
+@keyframes text{
+    0% {width:1020px;}
+    100% {width: 250px;}
+}
+
+.movingtext {
+    width:250px;
+    font-size: 35px;
+    text-align:right;
+    position:relative;
+    animation-name:text;
+    animation-duration:2s;
+
+    animation-timing-function:linear;
+}
+
+.photo{
+    width:50%;
+    padding:10%;
+}
+
+.column {
+    flex:20%;
+    max-width: 20%;
+    margin: 1%;
+    border: solid;
+}
+
+.navigation {
+    display: flex;
+    border-top: double;
+    justify-content: right;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.text{
+    margin-top:2%;
+    width:80%;
+    border-top:solid;
+    margin-left:10%;
+    margin-right:10%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    flex-direction:row;
+}
+
+@media (max-width:800px){
+    .column {
+        flex: 40%;
+        max-width: 40%;
+    }
+}
+
+@media (max-width:480px) {
+    .column {
+        flex: 90%;
+        max-width: 90%;
+    }
+    .navigation {
+        flex-direction: column;
+        justify-content:center;
+    }
+    
+}
+
+.menu {
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    margin-top: 100px;
+}
+
