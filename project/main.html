@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <p id="demo"></p>
+    <button id="but">asd</button>
+    <script>
+        (function () {
+            var httpRequest;
+            document.getElementById("but").addEventListener('click', makeRequest);
+            function makeRequest() {
+                httpRequest = new XMLHttpRequest;
+                httpRequest.onreadystatechange = displayContents;
+                httpRequest.open('GET', 'http://openapi.foodsafetykorea.go.kr/api/e51a527280cc47b9b841/C005/xml/1/5');
+                httpRequest.send();
+            }
+            function displayContents() {
+                if (httpRequest.readyState === XMLHttpRequest.DONE)
+                    if (httpRequest.status === 200) {
+                        var myObj = JSON.parse(httpRequest.respnseText);
+                        document.getElementById("demo").innerHTML = myObj;
+                    }
+            }
+        })();
+    </script>
+</body>
+</html>
