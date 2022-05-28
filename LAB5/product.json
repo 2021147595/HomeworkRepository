@@ -1,0 +1,78 @@
+{
+
+  "1": {
+    "name": "galaxy S20",
+    "category": "samsung",
+    "image": "galS20.jpg",
+    "price": "1240000won"
+  },
+  "2": {
+    "name": "galaxy S21",
+    "category": "samsung",
+    "image": "galS21.jpg",
+    "price": "990000won"
+  },
+  "3": {
+    "name": "galaxy S22",
+    "category": "samsung",
+    "image": "galS22.jpg",
+    "price": "990000won"
+  },
+  "4": {
+    "name": "galaxy fold 2",
+    "category": "samsung",
+    "image": "galfold2.jpg",
+    "price": "1650000"
+  },
+  "5": {
+    "name": "galaxy fold 3",
+    "category": "samsung",
+    "image": "galfold3.jpg",
+    "price": "2090000"
+  },
+  "6": {
+    "name": "iphone 11",
+    "category": "apple",
+    "image": "iphone11.jpg",
+    "price": "700000"
+  },
+  "7": {
+    "name": "iphone 12",
+    "category": "apple",
+    "image": "iphone12.jpg",
+    "price": "950000"
+  },
+  "8": {
+    "name": "iphone 13",
+    "category": "apple",
+    "image": "iphone13.jpg",
+    "price": "1090000"
+  },
+  "9": {
+    "name": "LG V40",
+    "category": "LG",
+    "image": "v40.jpg",
+    "price": "1040000"
+  },
+  "10": {
+    "name": "LG V50",
+    "category": "LG",
+    "image": "v50.jpg",
+    "price": "1190000"
+  },
+  "11": {
+    "name": "LG G6",
+    "category": "LG",
+    "image": "g6.jpg",
+    "price": "820000"
+  },
+  "12": {
+    "name": "LG G7",
+    "category": "LG",
+    "image": "g7.jpg",
+    "price": "890000"
+  }
+
+}
+
+

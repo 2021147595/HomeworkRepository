@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>E-commerce</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.querySelector('form').onsubmit = function () {
+                let keyword = document.getElementById("key").value;
+                let category = document.getElementById("category").value;
+                fetch('product.json')
+                    .then(response => {
+                        return response.json();                     
+                    })
+                    .then(data => {
+                        Search(data,keyword,category);
+                    })
+                    .catch(error => {
+                        console.log('Error:', error);
+                    });
+                return false;
+            };
+        });
+        document.addEventListener("click", mouseclick, false);
+        let click = {};
+        
+        function mouseclick(e) {
+            if (e.target.getAttribute("class") == "column" || e.target.getAttribute("class") == "photo") {
+                if (click[e.target.getAttribute("id").substring(3)] != 1 ) {
+                    document.getElementById("ex " + e.target.getAttribute("id").substring(3)).style.visibility = "visible";
+                    document.getElementById("im " + e.target.getAttribute("id").substring(3)).style.opacity = 0.5;
+                    click[e.target.getAttribute("id").substring(3)] = 1;
+                }
+                else {
+                    document.getElementById("ex " + e.target.getAttribute("id").substring(3)).style.visibility = "hidden";
+                    document.getElementById("im " + e.target.getAttribute("id").substring(3)).style.opacity = 1;
+                    click[e.target.getAttribute("id").substring(3)] = 0;
+                }
+
+                
+            }
+        }
+
+        function Search(data, key, cate) {
+            var elem = document.querySelectorAll('.column');
+            for (var k = 0; k < elem.length; k++) {
+                if (cate == "All") {
+                    if (key == "keyword" || elem[k].id.substring(3).toUpperCase().includes(key.toUpperCase())) {
+                        elem[k].style.display = '';
+                    }
+                    else {
+                        elem[k].style.display = 'none';
+                    }
+                }
+                else if (findcategory(data, elem[k].id.substring(3)) == cate) {
+                    if (key == "keyword" || elem[k].id.substring(3).toUpperCase().includes(key.toUpperCase())) {
+                        elem[k].style.display = '';
+                    }
+                    else {
+                        elem[k].style.display = 'none';
+                    }
+                }
+                else{
+                        elem[k].style.display = 'none';
+                }
+            }
+        }
+                 
+        function findcategory(data,nname) {
+            for (let i = 1; i < Object.keys(data).length+1; i++) {
+                if (data[i].name == nname) {
+                    return data[i].category;
+                }
+            }
+        }
+        function findprice(data, nname) {
+            for (let i = 1; i < Object.keys(data).length + 1; i++) {
+                if (data[i].name == nname) {
+                    return data[i].price;
+                }
+            }
+        }
+        function findkey(data, nname) {
+            for (let i = 1; i < Object.keys(data).length + 1; i++) {
+                if (data[i].name == nname) {
+                    return data[i].price;
+                }
+            }
+        }
+
+
+        var counter = 4;
+        window.onscroll = () => {
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                    fetch('product.json')
+                        .then(response => {
+                            return response.json()
+                        })
+                        .then(data => {
+                            let keyword = document.getElementById("key").value;
+                            let category = document.getElementById("category").value;
+                            adddiv(category,keyword,data);
+                    })
+            }
+        };
+        function adddiv(cate,key,data) {
+            if (counter <= 12) {
+                index = String(counter);
+                let key = Object.keys(data);
+                const post = document.createElement('div');
+                post.className = 'column';
+                post.id = "di "+ data[index].name;
+                const image = document.createElement('img');
+                const text = document.createElement('p');
+                text.className = 'explain';
+                text.innerHTML = data[index].name + "<br>price:" + data[index].price;
+                text.id = "ex " + data[index].name;
+                post.append(text);
+                image.src =data[index].image;
+                image.className = 'photo';
+                image.id = "im " + data[index].name;
+                post.append(image);
+                document.querySelector('#menu').append(post);
+                counter = counter + 1;
+            }
+
+        }
+    </script>
+</head>
+<body style="display:flex;justify-content:center;">
+    <div class="main">
+        <h1>CS shoping</h1>
+        <div class="navigation">
+            <input type="button" value="main" style="font-size: 20pt; border:none;background-color:white;" />
+            <input type="button" value="Login" name="Login" style="font-size: 20pt; border:none;background-color:white;" onclick="location.href='login.html'"  />
+            <input type="button" value="Signup" name="Signup" style="font-size: 20pt; border:none;background-color: white;" onclick="location.href='signup.html'" />
+        </div>
+        <div style="display:flex;">
+            <form>
+                <p style="margin-right:5px;">
+                    keyword:<input type="text" id="key" value="keyword"/>
+                    category: <select list="phone" id="category" >
+                        <option selected>All</option>
+                        <option>apple</option>
+                        <option>LG</option>
+                        <option>samsung</option>
+                    </select>
+                    <input type="submit" value="search"/>
+                </p>
+            </form>
+        </div>
+        <div id="menu">
+            <div class="column" id="di galaxy S20"> 
+                <img src="galS20.jpg" class="photo" id="im galaxy S20"/><p class="explain" id="ex galaxy S20">galaxy S20<br>price:1240000won</p></div>
+            <div class="column" id="di galaxy S21"> 
+                <img src="galS21.jpg" class="photo" id="im galaxy S21" /><p class="explain" id="ex galaxy S21">galaxy S21<br>price:990000won</p></div>
+            <div class="column" id="di galaxy S22"> 
+                <img src="galS22.jpg" class="photo" id="im galaxy S22"/><p class="explain" id="ex galaxy S22">galaxy S22<br>price:990000won</p></div>
+        </div>
+    </div>
+</body>
+</html>
